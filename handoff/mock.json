@@ -1,0 +1,432 @@
+{
+  "_comment": "Struktur = spätere Serverantwort. MockStore liest diese Datei aus dem Bundle, APIStore ersetzt sie später 1:1.",
+  "generated_at": "2026-09-08T07:00:00Z",
+  "home": {
+    "date": "2026-09-08",
+    "checked_at": "2026-09-08T07:00:00Z",
+    "due_resolutions": [
+      { "thesis_id": "th-nvda-1", "company": "Nvidia", "ticker": "NVDA", "reason": "horizon_reached" }
+    ],
+    "signal_tally": { "supports": 1, "mixed": 2, "weakens": 1, "screened": 214 },
+    "thesis_states": [
+      { "thesis_id": "th-nvda-1", "company": "Nvidia", "ticker": "NVDA", "health_word": "Unter Druck", "health_score": 0.45, "watchpoint_states": ["supports","risk","weakens","weakens","quiet"] },
+      { "thesis_id": "th-msft-1", "company": "Microsoft", "ticker": "MSFT", "health_word": "Intakt", "health_score": 0.81, "watchpoint_states": ["supports","supports","risk","quiet","supports"] },
+      { "thesis_id": "th-asml-1", "company": "ASML", "ticker": "ASML", "health_word": "Intakt, ein Riss", "health_score": 0.70, "watchpoint_states": ["supports","supports","weakens","risk","supports"] }
+    ],
+    "next_up": "NVDA berichtet am 18. November. Entscheidend für deine These ist die Bruttomarge, nicht der Umsatz."
+  },
+
+  "companies": [
+    {
+      "id": "co-nvda",
+      "ticker": "NVDA",
+      "isin": "US67066G1040",
+      "name": "Nvidia",
+      "exchange": "Nasdaq",
+      "sector": "Halbleiter",
+      "logo_url": "logos/nvda.svg",
+      "quote": { "price": 182.90, "currency": "USD", "change_pct": 1.4, "as_of": "2026-09-08T20:00:00Z" },
+      "consensus": {
+        "growth_expected_pct": 22,
+        "thesis_implies_pct": 30,
+        "analyst_count": 24,
+        "note": "Die Differenz sitzt auf dem Watchpoint Rechenzentrum-Umsatz.",
+        "user_clusters": [
+          { "label": "Zyklus-These", "share_pct": 58 },
+          { "label": "Software-Burggraben", "share_pct": 31 }
+        ],
+        "user_count": 1240
+      },
+      "price_series": {
+        "range": "3Y",
+        "points": [
+          { "d": "2023-09-01", "v": 24 }, { "d": "2023-12-01", "v": 32 }, { "d": "2024-03-01", "v": 28 },
+          { "d": "2024-06-01", "v": 46 }, { "d": "2024-09-01", "v": 42 }, { "d": "2024-12-01", "v": 60 },
+          { "d": "2025-03-01", "v": 54 }, { "d": "2025-06-01", "v": 74 }, { "d": "2025-09-01", "v": 66 },
+          { "d": "2025-12-01", "v": 88 }, { "d": "2026-03-01", "v": 80 }, { "d": "2026-06-01", "v": 96 },
+          { "d": "2026-09-08", "v": 92 }
+        ]
+      },
+      "thesis": {
+        "id": "th-nvda-1",
+        "company_id": "co-nvda",
+        "text": "Nvidia bleibt der Standard für AI-Training, weil CUDA den Wechsel teuer macht und die Rechenzentren weiter aufrüsten.",
+        "direction": "up",
+        "horizon_end": "2027-12-31",
+        "falsify_condition": "Die Bruttomarge liegt zwei Quartale hintereinander unter 70 %.",
+        "falsify_rule": { "metric": "gross_margin", "operator": "<", "value": 70, "consecutive_quarters": 2 },
+        "expectation_pct": 35,
+        "origin": "template",
+        "template_id": "tpl-nvda-cycle",
+        "created_at": "2024-03-12T09:14:00Z",
+        "status": "active",
+        "health": { "score": 0.45, "word": "Unter Druck", "delta_14d": -0.11 },
+        "position": { "quantity": 12, "avg_price": 141.20, "currency": "USD", "pnl_pct": 29.5,
+                      "note": "Du liegst im Plus, aber der Grund für den Kauf ist seit zwei Wochen schwächer als beim Einstieg." },
+        "next_up": "Q3-Bericht am 18. November. Achte auf die Bruttomarge, nicht auf den Umsatz.",
+        "watchpoints": [
+          { "id": "wp-nvda-1", "name": "Rechenzentrum-Umsatz", "kind": "quantitative", "canonical_id": "cn-dc-revenue", "order": 0,
+            "rule": { "metric": "datacenter_revenue_growth_qoq", "operator": ">", "value": 10, "unit": "%" },
+            "state": "supports", "state_note": "weiter zweistellig q/q" },
+          { "id": "wp-nvda-2", "name": "Bruttomarge über 70 %", "kind": "quantitative", "canonical_id": "cn-gross-margin", "order": 1,
+            "rule": { "metric": "gross_margin", "operator": ">", "value": 70, "unit": "%" },
+            "state": "risk", "state_note": "73,0 %, leicht rückläufig" },
+          { "id": "wp-nvda-3", "name": "Custom-Silicon-Konkurrenz", "kind": "qualitative", "canonical_id": "cn-custom-silicon", "order": 2,
+            "rule": null, "state": "weakens", "state_note": "zwei Hyperscaler mit 2027-Plan" },
+          { "id": "wp-nvda-4", "name": "Lieferkette HBM", "kind": "qualitative", "canonical_id": "cn-hbm-supply", "order": 3,
+            "rule": null, "state": "weakens", "state_note": "Zweitquelle nicht qualifiziert" },
+          { "id": "wp-nvda-5", "name": "Kundenkonzentration", "kind": "quantitative", "canonical_id": "cn-customer-concentration", "order": 4,
+            "rule": { "metric": "top3_customer_share", "operator": "<", "value": 45, "unit": "%" },
+            "state": "quiet", "state_note": "keine neuen Daten" }
+        ],
+        "tasks": [
+          { "id": "tk-nvda-1", "target_type": "watchpoint", "target_id": "wp-nvda-2",
+            "instruction": "Prüfe, ob die Bruttomarge unter Druck gerät, und nenne die Quelle mit Zahl",
+            "rhythm": "weekly", "event_trigger": null, "event_params": null, "active": true,
+            "last_run_at": "2026-09-01T07:00:00Z", "next_run_at": "2026-09-14T07:00:00Z", "cost_class": "low" },
+          { "id": "tk-nvda-2", "target_type": "watchpoint", "target_id": "wp-nvda-3",
+            "instruction": "Melde jede Ankündigung eigener Beschleuniger bei den zehn größten Kunden",
+            "rhythm": "event", "event_trigger": "analyst_note", "event_params": null, "active": true,
+            "last_run_at": "2026-09-08T06:40:00Z", "next_run_at": null, "cost_class": "low" }
+        ]
+      },
+      "signals": [
+        {
+          "id": "sg-nvda-1", "watchpoint_id": "wp-nvda-3", "secondary_watchpoint_ids": [],
+          "kind": "news", "verdict": "weakens",
+          "headline": "Zwei Hyperscaler stellen eigene Trainings-Beschleuniger für 2027 in Aussicht.",
+          "why": "Betrifft die Wechselkosten-Annahme deiner These. Kurzfristig ohne Umsatzeffekt, mittelfristig sinkt die Preissetzungsmacht.",
+          "deep": {
+            "what": "Zwei große Cloud-Anbieter haben angekündigt, ab 2027 eigene Trainings-Beschleuniger im eigenen Rechenzentrum einzusetzen. Konkrete Stückzahlen und Zeitpläne wurden nicht genannt.",
+            "impact": "Deine These stützt sich darauf, dass ein Wechsel weg von CUDA für Kunden zu teuer ist. Wenn die größten Kunden einen Teil ihrer Last selbst abdecken, sinkt nicht sofort der Umsatz, aber die Preissetzungsmacht — und damit die Marge, die deine Abbruchbedingung schützt.",
+            "counter": "Eigene Beschleuniger wurden schon dreimal angekündigt und decken bisher überwiegend Inferenz ab, nicht Training. Solange die Software-Werkzeuge fehlen, bleibt der Wechsel teuer.",
+            "magnitude": "betrifft mittelfristig rund ein Fünftel des Rechenzentrum-Umsatzes",
+            "decided_by": "Q3-Bericht 18. November, Margenzeile"
+          },
+          "sources": [
+            { "title": "Cloud-Anbieter planen eigene KI-Beschleuniger", "publisher": "Agentur A", "url": "https://example.com/a", "published_at": "2026-09-08T05:10:00Z", "quote": "ab 2027 im eigenen Rechenzentrum" },
+            { "title": "Bericht zur Ankündigung", "publisher": "Agentur B", "url": "https://example.com/b", "published_at": "2026-09-08T06:02:00Z", "quote": "keine Stückzahlen genannt" }
+          ],
+          "occurred_at": "2026-09-08T06:40:00Z", "market_reaction": null, "user_feedback": null
+        },
+        {
+          "id": "sg-nvda-2", "watchpoint_id": "wp-nvda-2", "secondary_watchpoint_ids": [],
+          "kind": "analyst", "verdict": "mixed",
+          "headline": "Eine große Bank hebt das Kursziel, senkt aber die Margenschätzung für 2027.",
+          "why": "Die Kurszielerhöhung sagt nichts über deine These. Relevant ist die Margenschätzung, sie rückt näher an deine Abbruchbedingung.",
+          "deep": {
+            "what": "Eine große Bank hat das Kursziel angehoben und im gleichen Bericht die Margenschätzung für 2027 gesenkt.",
+            "impact": "Das Kursziel ist für deine These bedeutungslos — du bewertest nicht den Kurs, sondern die Marge. Die gesenkte Schätzung rückt näher an deine Abbruchbedingung von 70 %.",
+            "counter": "Es ist eine Schätzung, keine Zahl des Unternehmens. Zwei andere Häuser halten ihre Margenannahme unverändert.",
+            "magnitude": "Schätzung 2027 von 72 % auf 70,5 % gesenkt",
+            "decided_by": "Q3-Bericht 18. November"
+          },
+          "sources": [
+            { "title": "Bankbericht", "publisher": "Institut C", "url": "https://example.com/c", "published_at": "2026-09-08T05:55:00Z", "quote": "Margenschätzung 2027 auf 70,5 % gesenkt" }
+          ],
+          "occurred_at": "2026-09-08T06:05:00Z", "market_reaction": null, "user_feedback": null
+        },
+        {
+          "id": "sg-nvda-3", "watchpoint_id": "wp-nvda-2", "secondary_watchpoint_ids": ["wp-nvda-4"],
+          "kind": "earnings_call", "verdict": "mixed",
+          "headline": "Management bestätigt starke Nachfrage, nennt aber höhere HBM-Kosten.",
+          "why": "Volumen stützt die These, die Marge wird teurer. Weniger Puffer bis zu deiner Abbruchbedingung.",
+          "deep": null,
+          "sources": [{ "title": "Q2 Earnings Call", "publisher": "Unternehmen", "url": "https://example.com/d", "published_at": "2026-08-27T21:00:00Z", "quote": "input cost pressure from memory" }],
+          "occurred_at": "2026-08-27T21:00:00Z",
+          "market_reaction": { "window_days": 30, "pct": -4.1, "agrees": true },
+          "user_feedback": null
+        },
+        {
+          "id": "sg-nvda-4", "watchpoint_id": "wp-nvda-1", "secondary_watchpoint_ids": [],
+          "kind": "fundamentals", "verdict": "supports",
+          "headline": "Zwei Cloud-Anbieter heben ihr CapEx-Budget für das kommende Jahr an.",
+          "why": "Erhöht das adressierbare Volumen im laufenden Zyklus und stützt den Kern deiner These.",
+          "deep": null,
+          "sources": [{ "title": "Quartalsberichte Cloud-Anbieter", "publisher": "Filings", "url": "https://example.com/e", "published_at": "2026-08-19T12:00:00Z", "quote": "capital expenditures raised" }],
+          "occurred_at": "2026-08-19T12:00:00Z",
+          "market_reaction": { "window_days": 30, "pct": 11.2, "agrees": true },
+          "user_feedback": null
+        }
+      ],
+      "pending_resolution": {
+        "thesis_id": "th-nvda-1",
+        "trigger": "horizon_reached",
+        "expectation_pct": 35,
+        "actual_pct": 64,
+        "outcome": "partly",
+        "watchpoint_outcomes": [
+          { "watchpoint_id": "wp-nvda-1", "held": true, "note": "durchgehend zweistellig gewachsen" },
+          { "watchpoint_id": "wp-nvda-2", "held": true, "note": "zuletzt 71,4 %, knapp gehalten" },
+          { "watchpoint_id": "wp-nvda-3", "held": false, "note": "zwei Hyperscaler in Serie ab 2027" },
+          { "watchpoint_id": "wp-nvda-4", "held": false, "note": "Zweitquelle nie qualifiziert" },
+          { "watchpoint_id": "wp-nvda-5", "held": true, "note": "unverändert hoch, ohne Folgen" }
+        ],
+        "summary": "Der Kern deiner These hat gehalten: die Rechenzentren haben aufgerüstet. Falsch lagst du bei den Wechselkosten — die eigenen Beschleuniger der Hyperscaler kamen früher, als du angenommen hast.",
+        "market_agreement": { "followed": 3, "total": 4 }
+      }
+    },
+
+    {
+      "id": "co-msft",
+      "ticker": "MSFT",
+      "isin": "US5949181045",
+      "name": "Microsoft",
+      "exchange": "Nasdaq",
+      "sector": "Software",
+      "logo_url": "logos/msft.svg",
+      "quote": { "price": 512.40, "currency": "USD", "change_pct": 0.3, "as_of": "2026-09-08T20:00:00Z" },
+      "consensus": {
+        "growth_expected_pct": 18, "thesis_implies_pct": 25, "analyst_count": 38,
+        "note": "Die Differenz sitzt auf dem Watchpoint Azure-Wachstum.",
+        "user_clusters": [
+          { "label": "Cloud-und-AI-These", "share_pct": 64 },
+          { "label": "Margen-These", "share_pct": 22 }
+        ],
+        "user_count": 2870
+      },
+      "price_series": {
+        "range": "3Y",
+        "points": [
+          { "d": "2023-09-01", "v": 20 }, { "d": "2023-12-01", "v": 28 }, { "d": "2024-03-01", "v": 24 },
+          { "d": "2024-06-01", "v": 38 }, { "d": "2024-09-01", "v": 34 }, { "d": "2024-12-01", "v": 50 },
+          { "d": "2025-03-01", "v": 46 }, { "d": "2025-06-01", "v": 62 }, { "d": "2025-09-01", "v": 58 },
+          { "d": "2025-12-01", "v": 71 }, { "d": "2026-03-01", "v": 67 }, { "d": "2026-06-01", "v": 80 },
+          { "d": "2026-09-08", "v": 76 }
+        ]
+      },
+      "thesis": {
+        "id": "th-msft-1",
+        "company_id": "co-msft",
+        "text": "Microsoft wächst weiter, weil Azure und die AI-Monetarisierung den Umsatz treiben, während die Marge stark bleibt.",
+        "direction": "up",
+        "horizon_end": "2028-06-30",
+        "falsify_condition": "Azure wächst zwei Quartale unter 20 % y/y.",
+        "falsify_rule": { "metric": "azure_growth_yoy", "operator": "<", "value": 20, "consecutive_quarters": 2 },
+        "expectation_pct": 45,
+        "origin": "custom",
+        "template_id": null,
+        "created_at": "2025-01-20T18:40:00Z",
+        "status": "active",
+        "health": { "score": 0.81, "word": "Intakt", "delta_14d": 0.02 },
+        "position": null,
+        "next_up": "Nächster Quartalsbericht: CapEx im Verhältnis zum Azure-Umsatz.",
+        "watchpoints": [
+          { "id": "wp-msft-1", "name": "Azure-Wachstum über 20 %", "kind": "quantitative", "canonical_id": "cn-azure-growth", "order": 0,
+            "rule": { "metric": "azure_growth_yoy", "operator": ">", "value": 20, "unit": "%" },
+            "state": "supports", "state_note": "letzte Angabe +29 % y/y" },
+          { "id": "wp-msft-2", "name": "AI-Monetarisierung", "kind": "qualitative", "canonical_id": "cn-ai-monetization", "order": 1,
+            "rule": null, "state": "supports", "state_note": "Copilot-Seats, kein Ausweis" },
+          { "id": "wp-msft-3", "name": "CapEx-ROI", "kind": "qualitative", "canonical_id": "cn-capex-roi", "order": 2,
+            "rule": null, "state": "risk", "state_note": "CapEx +58 %, Rendite offen" },
+          { "id": "wp-msft-4", "name": "Operative Marge", "kind": "quantitative", "canonical_id": "cn-operating-margin", "order": 3,
+            "rule": { "metric": "operating_margin", "operator": ">", "value": 42, "unit": "%" },
+            "state": "quiet", "state_note": "keine neuen Daten" },
+          { "id": "wp-msft-5", "name": "Enterprise-Nachfrage", "kind": "qualitative", "canonical_id": "cn-enterprise-demand", "order": 4,
+            "rule": null, "state": "supports", "state_note": "Bookings robust" }
+        ],
+        "tasks": [
+          { "id": "tk-msft-1", "target_type": "watchpoint", "target_id": "wp-msft-3",
+            "instruction": "Vergleiche CapEx-Wachstum mit Azure-Umsatzwachstum und nenne die Differenz",
+            "rhythm": "monthly", "event_trigger": null, "event_params": null, "active": true,
+            "last_run_at": "2026-09-01T07:00:00Z", "next_run_at": "2026-10-01T07:00:00Z", "cost_class": "low" }
+        ]
+      },
+      "signals": [
+        {
+          "id": "sg-msft-1", "watchpoint_id": "wp-msft-3", "secondary_watchpoint_ids": ["wp-msft-2"],
+          "kind": "news", "verdict": "mixed",
+          "headline": "Neue Rechenzentrums-Zusagen über mehrere Regionen angekündigt.",
+          "why": "Die Nachfrageseite deiner These wird bestätigt, gleichzeitig steigt der Kapitaleinsatz schneller als der Cloud-Umsatz.",
+          "deep": {
+            "what": "Neue Rechenzentrums-Zusagen über mehrere Regionen wurden angekündigt, ohne Angabe der Investitionssumme.",
+            "impact": "Für die Nachfrageseite deiner These ist das positiv. Gleichzeitig wächst der Kapitaleinsatz schneller als der Cloud-Umsatz — genau die Lücke, die dein Watchpoint CapEx-ROI beobachtet.",
+            "counter": "Zusagen sind keine Ausgaben. Ein Teil davon ist Absichtserklärung und kann über Jahre gestreckt werden.",
+            "magnitude": "keine Summe genannt",
+            "decided_by": "nächster Quartalsbericht, CapEx-Zeile"
+          },
+          "sources": [
+            { "title": "Unternehmensblog", "publisher": "Unternehmen", "url": "https://example.com/f", "published_at": "2026-09-08T06:00:00Z", "quote": "multiple new regions" },
+            { "title": "Bericht zur Ankündigung", "publisher": "Medium D", "url": "https://example.com/g", "published_at": "2026-09-08T07:00:00Z", "quote": "keine Investitionssumme genannt" }
+          ],
+          "occurred_at": "2026-09-08T07:15:00Z", "market_reaction": null, "user_feedback": null
+        },
+        {
+          "id": "sg-msft-2", "watchpoint_id": "wp-msft-5", "secondary_watchpoint_ids": [],
+          "kind": "fundamentals", "verdict": "supports",
+          "headline": "Drei mehrjährige Cloud-Migrationen im Quartal abgeschlossen.",
+          "why": "Vertraglich gebundener Umsatz stützt die Annahme stabiler Enterprise-Nachfrage.",
+          "deep": null,
+          "sources": [{ "title": "Quartalsbericht", "publisher": "Filings", "url": "https://example.com/h", "published_at": "2026-08-29T12:00:00Z", "quote": "multi-year commitments" }],
+          "occurred_at": "2026-08-29T12:00:00Z",
+          "market_reaction": { "window_days": 30, "pct": 2.1, "agrees": true },
+          "user_feedback": null
+        },
+        {
+          "id": "sg-msft-3", "watchpoint_id": "wp-msft-1", "secondary_watchpoint_ids": [],
+          "kind": "earnings_call", "verdict": "supports",
+          "headline": "Kapazitätsengpässe gelöst, Wachstumsband für das Halbjahr bestätigt.",
+          "why": "Nimmt das Hauptrisiko deiner Azure-Annahme für zwei Quartale vom Tisch.",
+          "deep": null,
+          "sources": [{ "title": "Earnings Call", "publisher": "Unternehmen", "url": "https://example.com/i", "published_at": "2026-08-22T21:00:00Z", "quote": "capacity constraints resolved" }],
+          "occurred_at": "2026-08-22T21:00:00Z",
+          "market_reaction": { "window_days": 30, "pct": 7.4, "agrees": true },
+          "user_feedback": null
+        }
+      ],
+      "pending_resolution": null
+    },
+
+    {
+      "id": "co-asml",
+      "ticker": "ASML",
+      "isin": "NL0010273215",
+      "name": "ASML",
+      "exchange": "Euronext",
+      "sector": "Halbleiter-Ausrüstung",
+      "logo_url": "logos/asml.svg",
+      "quote": { "price": 742.10, "currency": "EUR", "change_pct": -0.6, "as_of": "2026-09-08T17:35:00Z" },
+      "consensus": {
+        "growth_expected_pct": 12, "thesis_implies_pct": 15, "analyst_count": 19,
+        "note": "Die Differenz sitzt auf dem Watchpoint High-NA-Adoption.",
+        "user_clusters": [
+          { "label": "Monopol-These", "share_pct": 71 },
+          { "label": "Zyklus-These", "share_pct": 18 }
+        ],
+        "user_count": 640
+      },
+      "price_series": {
+        "range": "3Y",
+        "points": [
+          { "d": "2023-09-01", "v": 42 }, { "d": "2023-12-01", "v": 48 }, { "d": "2024-03-01", "v": 38 },
+          { "d": "2024-06-01", "v": 58 }, { "d": "2024-09-01", "v": 50 }, { "d": "2024-12-01", "v": 68 },
+          { "d": "2025-03-01", "v": 58 }, { "d": "2025-06-01", "v": 76 }, { "d": "2025-09-01", "v": 62 },
+          { "d": "2025-12-01", "v": 78 }, { "d": "2026-03-01", "v": 64 }, { "d": "2026-06-01", "v": 82 },
+          { "d": "2026-09-08", "v": 70 }
+        ]
+      },
+      "thesis": {
+        "id": "th-asml-1",
+        "company_id": "co-asml",
+        "text": "ASML profitiert vom EUV-Monopol, weil jede fortschrittlichere Node mehr Lithografie-Intensität braucht.",
+        "direction": "up",
+        "horizon_end": "2029-12-31",
+        "falsify_condition": "Ein zweiter Anbieter liefert eine EUV-taugliche Anlage aus.",
+        "falsify_rule": null,
+        "expectation_pct": 60,
+        "origin": "template",
+        "template_id": "tpl-asml-monopoly",
+        "created_at": "2024-01-08T10:05:00Z",
+        "status": "active",
+        "health": { "score": 0.70, "word": "Intakt, ein Riss", "delta_14d": 0.02 },
+        "position": { "quantity": 4, "avg_price": 688.00, "currency": "EUR", "pnl_pct": 7.9,
+                      "note": "Seit deinem Einstieg hat sich ein Watchpoint verschlechtert: die Exportregeln." },
+        "next_up": "Investor Day am 6. Oktober: High-NA-Auslieferungen für 2027.",
+        "watchpoints": [
+          { "id": "wp-asml-1", "name": "EUV-Monopolstellung", "kind": "qualitative", "canonical_id": "cn-euv-monopoly", "order": 0,
+            "rule": null, "state": "supports", "state_note": "kein zweiter Anbieter in Sicht" },
+          { "id": "wp-asml-2", "name": "High-NA-Adoption", "kind": "qualitative", "canonical_id": "cn-highna-adoption", "order": 1,
+            "rule": null, "state": "supports", "state_note": "zweiter Kunde beliefert" },
+          { "id": "wp-asml-3", "name": "China-Exportregeln", "kind": "qualitative", "canonical_id": "cn-export-controls", "order": 2,
+            "rule": null, "state": "weakens", "state_note": "erweiterte Prüfliste erwartet" },
+          { "id": "wp-asml-4", "name": "Nachfrage Alt-Nodes", "kind": "quantitative", "canonical_id": "cn-mature-node-demand", "order": 3,
+            "rule": { "metric": "duv_orders_qoq", "operator": ">", "value": 0, "unit": "%" },
+            "state": "risk", "state_note": "DUV-Bestellungen −8 % q/q" },
+          { "id": "wp-asml-5", "name": "Auftragsbestand über 35 Mrd.", "kind": "quantitative", "canonical_id": "cn-backlog", "order": 4,
+            "rule": { "metric": "backlog", "operator": ">", "value": 35, "unit": "Mrd. EUR" },
+            "state": "supports", "state_note": "39 Mrd. EUR, stabil" }
+        ],
+        "tasks": [
+          { "id": "tk-asml-1", "target_type": "watchpoint", "target_id": "wp-asml-3",
+            "instruction": "Melde jede Änderung der Exportregeln und schätze den betroffenen Umsatzanteil",
+            "rhythm": "daily", "event_trigger": null, "event_params": null, "active": true,
+            "last_run_at": "2026-08-25T07:00:00Z", "next_run_at": "2026-09-09T07:00:00Z", "cost_class": "low" }
+        ]
+      },
+      "signals": [
+        {
+          "id": "sg-asml-1", "watchpoint_id": "wp-asml-2", "secondary_watchpoint_ids": ["wp-asml-1"],
+          "kind": "news", "verdict": "supports",
+          "headline": "Zweite High-NA-Anlage ausgeliefert, Abnahme durch den Kunden bestätigt.",
+          "why": "Bestätigt das Adoptionstempo, das deine These voraussetzt, und damit die Preisdurchsetzung ab 2027.",
+          "deep": {
+            "what": "Die zweite High-NA-Anlage wurde ausgeliefert und vom Kunden formal abgenommen. Die Abnahme ist der Punkt, ab dem Umsatz gebucht wird.",
+            "impact": "Deine These setzt voraus, dass jede neue Node mehr Lithografie braucht. Eine bestätigte Abnahme ist der härteste verfügbare Belegtyp dafür — sie zeigt, dass der Kunde die Technik in der Serienplanung hat, nicht nur im Labor.",
+            "counter": "Zwei Anlagen sind noch keine Adoptionskurve. Der Ausbau ab 2027 hängt an Investitionsentscheidungen, die noch nicht getroffen sind.",
+            "magnitude": "zweite von geplanten fünf Anlagen bis 2027",
+            "decided_by": "Investor Day 6. Oktober, Auslieferungsplan 2027"
+          },
+          "sources": [
+            { "title": "Unternehmensmitteilung", "publisher": "Unternehmen", "url": "https://example.com/j", "published_at": "2026-09-08T07:30:00Z", "quote": "formal customer acceptance" },
+            { "title": "Fachbericht", "publisher": "Medium E", "url": "https://example.com/k", "published_at": "2026-09-08T08:00:00Z", "quote": "second High-NA system shipped" }
+          ],
+          "occurred_at": "2026-09-08T08:05:00Z", "market_reaction": null, "user_feedback": null
+        },
+        {
+          "id": "sg-asml-2", "watchpoint_id": "wp-asml-3", "secondary_watchpoint_ids": [],
+          "kind": "news", "verdict": "weakens",
+          "headline": "Erweiterte Genehmigungspflicht für das Servicegeschäft im Gespräch.",
+          "why": "Betrifft rund ein Fünftel des Systemumsatzes. Das EUV-Monopol bleibt unberührt, der China-Umsatz nicht.",
+          "deep": null,
+          "sources": [{ "title": "Bericht zu Exportregeln", "publisher": "Agentur F", "url": "https://example.com/l", "published_at": "2026-08-25T09:00:00Z", "quote": "expanded licensing requirement under discussion" }],
+          "occurred_at": "2026-08-25T09:00:00Z",
+          "market_reaction": { "window_days": 30, "pct": -12.3, "agrees": true },
+          "user_feedback": null
+        },
+        {
+          "id": "sg-asml-3", "watchpoint_id": "wp-asml-4", "secondary_watchpoint_ids": [],
+          "kind": "fundamentals", "verdict": "mixed",
+          "headline": "Ein Foundry-Kunde verschiebt den Ausbau bei Mature Nodes ins nächste Jahr.",
+          "why": "Trifft nur das DUV-Geschäft. Für den EUV-Kern deiner These ohne Wirkung.",
+          "deep": null,
+          "sources": [{ "title": "Quartalsbericht Kunde", "publisher": "Filings", "url": "https://example.com/m", "published_at": "2026-08-18T12:00:00Z", "quote": "mature node capex deferred" }],
+          "occurred_at": "2026-08-18T12:00:00Z",
+          "market_reaction": { "window_days": 30, "pct": 4.4, "agrees": false },
+          "user_feedback": null
+        }
+      ],
+      "pending_resolution": null
+    }
+  ],
+
+  "search_results": [
+    { "ticker": "NVDA", "name": "Nvidia Corp.", "exchange": "Nasdaq", "sector": "Halbleiter", "logo_url": "logos/nvda.svg", "has_thesis": true },
+    { "ticker": "NVO", "name": "Novo Nordisk", "exchange": "NYSE", "sector": "Pharma", "logo_url": null, "has_thesis": false },
+    { "ticker": "NXPI", "name": "NXP Semiconductors", "exchange": "Nasdaq", "sector": "Halbleiter", "logo_url": null, "has_thesis": false }
+  ],
+
+  "thesis_templates": {
+    "co-nvda": [
+      { "id": "tpl-nvda-cycle", "title": "AI-Rechenzentrum-Zyklus",
+        "text": "Nvidia bleibt der Standard für AI-Training, weil CUDA den Wechsel teuer macht und die Rechenzentren weiter aufrüsten.",
+        "watchpoint_count": 5, "chosen_share_pct": 58,
+        "suggested_watchpoints": ["cn-dc-revenue", "cn-gross-margin", "cn-custom-silicon", "cn-hbm-supply", "cn-customer-concentration"] },
+      { "id": "tpl-nvda-moat", "title": "Software-Burggraben",
+        "text": "Der Vorsprung liegt in CUDA und den Frameworks, nicht in der Hardware. Deshalb hält die Marge auch bei mehr Wettbewerb.",
+        "watchpoint_count": 4, "chosen_share_pct": 31,
+        "suggested_watchpoints": ["cn-custom-silicon", "cn-gross-margin", "cn-dc-revenue", "cn-developer-adoption"] },
+      { "id": "tpl-nvda-caution", "title": "Zyklus-Vorsicht",
+        "text": "Die Nachfrage bleibt stark, aber der Zyklus dreht 2027. Ich beobachte Bestellungen und Marge, nicht den Umsatz.",
+        "watchpoint_count": 5, "chosen_share_pct": 11,
+        "suggested_watchpoints": ["cn-orders", "cn-gross-margin", "cn-inventory", "cn-custom-silicon", "cn-customer-concentration"] }
+    ]
+  },
+
+  "canonical_watchpoints": [
+    { "id": "cn-dc-revenue", "company_id": "co-nvda", "label": "Rechenzentrum-Umsatz", "kind": "quantitative", "user_count": 1180 },
+    { "id": "cn-gross-margin", "company_id": "co-nvda", "label": "Bruttomarge", "kind": "quantitative", "user_count": 970 },
+    { "id": "cn-custom-silicon", "company_id": "co-nvda", "label": "Custom-Silicon-Konkurrenz", "kind": "qualitative", "user_count": 890 },
+    { "id": "cn-hbm-supply", "company_id": "co-nvda", "label": "Lieferkette HBM", "kind": "qualitative", "user_count": 410 },
+    { "id": "cn-customer-concentration", "company_id": "co-nvda", "label": "Kundenkonzentration", "kind": "quantitative", "user_count": 350 }
+  ],
+
+  "settings": {
+    "signal_rhythm": "daily_07",
+    "push_on_weakens": true,
+    "include_analyst_signals": true,
+    "explanation_depth": "detailed",
+    "market_reaction_window_days": 30,
+    "language": "de",
+    "track_record": { "resolved": 5, "correct": 2, "market_followed": 7, "market_total": 11 }
+  }
+}
